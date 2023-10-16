@@ -4,6 +4,8 @@ public class Token {
     private String token;
     private byte type;
 
+    private Object value;
+
     public static final byte NUMBER = 0;
     public static final byte OBJECT = 1;
     public static final byte BOOLEAN = 2;
@@ -33,5 +35,13 @@ public class Token {
 
     public void setTokenType(byte type){
         this.type = type;
+    }
+
+    public void setValue(Object value){
+        this.value = value;
+    }
+
+    public Object getValue(){
+        return this.value;
     }
 }
