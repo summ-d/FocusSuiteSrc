@@ -1,5 +1,7 @@
 package com.focussuite;
 
+import javax.swing.JFrame;
+
 import com.focussuite.gui.LoginScreen;
 
 /**
@@ -15,8 +17,8 @@ public final class App {
      * @param args The arguments of the program.
      */
     public static void main(String[] args) {
-        System.out.println("Hello World!");
-        LoginScreen ls = new LoginScreen();
-        ls.setVisible(true);
+        LoginScreen ls = new LoginScreen(new JFrame("FocusSuite Login"));
+        ls.renderBasic();
     }
+
 }

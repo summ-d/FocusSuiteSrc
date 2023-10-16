@@ -1,63 +1,45 @@
 package com.focussuite.gui;
 
+import javax.swing.JButton;
+import javax.swing.JPanel;
 import javax.swing.JFrame;
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 
-public class LoginScreen extends JFrame{
-    private RoundedButton loginButton;
-    private RoundedButton signUp;
-    private RoundedButton adminButton;
-    private RoundedText username;
-    private RoundedText password;
+public class LoginScreen extends JPanel{
+
+    private JFrame frame;
 
     private LoginData sessionData;
 
    
-    public LoginScreen(){
-        super("FocusSuite -- Login");
-        this.setSize(200, 200);
+    public LoginScreen(JFrame frame){
+        super();
+        frame.setSize(400, 400);
+        frame.setVisible(true);
+        this.frame = frame;
     }
 
     public void renderBasic(){
-        loginButton = new RoundedButton("Login");
-        signUp = new RoundedButton("Sign Up Here");
-        adminButton = new RoundedButton("Parent, Teacher, or Admin? Click here");
-        username = new RoundedText("Username:", 30);
-        password = new RoundedText("Password:", 30);
-
+        JButton button = new JButton("Test");
+        button.setBounds(40, 100, 40, 20);
+        button.setSize(20, 20);
+        this.add(button);
+        frame.add(this);
     }
 
-    @Override
-    public void paint(Graphics g){
-        this.renderBasic();
-        loginButton.setDimensions(10, 20, 100, 150);
-        signUp.setDimensions(10, 10, 20, 150);
-        adminButton.setDimensions(10, 10, 180, 150);
-        loginButton.paintComponent(g);
-        signUp.paintComponent(g);
-        adminButton.paintComponent(g);
-        username.paintAll(g);
-        password.paintAll(g);
-        super.paint(g);
-    }
 
 
     public void attachListeners(){
-        loginButton.addMouseListener(new LoginButtonListener());
-        signUp.addMouseListener(new SignupButtonListener());
-        adminButton.addMouseListener(new AdminRedirListener());
+        
     }
 
     private class LoginButtonListener implements MouseListener{
 
         @Override
         public void mouseClicked(MouseEvent e) {
-            sessionData = new LoginData();
-            sessionData.setPassword(password.getText());
-            sessionData.setUsername(username.getText());
             
         }
 
