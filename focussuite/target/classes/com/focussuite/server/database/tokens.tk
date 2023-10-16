@@ -1,0 +1,6 @@
+CREATE 1;
+SELECT 3;
+ADD 4;
+FROM 1;
+TO 1;
+DUMP 1;
